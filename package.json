@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "inspect": "node examples/index.js"
   }
 }

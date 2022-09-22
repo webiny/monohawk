@@ -17,12 +17,10 @@ const ignoreDeps = [
         cacheDir: path.join(__dirname, "cache"),
         filterWorkspaces: (pkg) => pkg.name.startsWith("@webiny"),
         filterDeps: (name) => {
-            return !ignoreDeps.includes(name) && !name.startsWith("@webiny");
-        },
-        shouldFetchSize: (name) => {
-            return !name.startsWith("@babel") && !name.startsWith("@types");
+            return !name.startsWith("@webiny");
+            // return !ignoreDeps.includes(name) && !name.startsWith("@webiny");
         }
     });
-    
+
     await render(data, destination);
 })();
