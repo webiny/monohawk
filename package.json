@@ -1,0 +1,19 @@
+{
+  "name": "monohawk",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.1.0",
+    "get-yarn-workspaces": "^1.0.2",
+    "node-fetch": "^2.6.1",
+    "ora": "^5.4.0",
+    "p-retry": "^4.4.0",
+    "resolve-package-path": "^4.0.3",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}
