@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "web"
+    ]
+  },
   "dependencies": {
     "chalk": "^4.1.0",
+    "execa": "^5.0.0",
     "fs-extra": "^9.1.0",
     "get-yarn-workspaces": "^1.0.2",
     "node-fetch": "^2.6.1",
@@ -17,6 +23,6 @@
     "prettier": "^2.2.1"
   },
   "scripts": {
-    "inspect": "node examples/index.js"
+    "inspect": "node run/index.js"
   }
 }

@@ -1,3 +1,6 @@
+/**
+ * NOTE: this file is not used for now. We disabled loading of stats from bundlephobia to make the tool more stable.
+ */
 const fetch = require("node-fetch");
 const { green } = require("chalk");
 const ora = require("ora");

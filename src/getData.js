@@ -1,10 +1,13 @@
 const path = require("path");
 const fs = require("fs-extra");
+const crypto = require("crypto");
 const resolvePackagePath = require("resolve-package-path");
 const allWorkspaces = require("./getWorkspaces");
 const { getPackageVersion } = require("./getPackageVersion");
 
-module.exports = async (root, { cacheDir, filterWorkspaces, filterDeps }) => {
+module.exports.getData = async (root, { cacheDir, filterWorkspaces, filterDeps }) => {
+    const cacheKey = crypto.createHash("md5").update(root).digest("hex");
+    cacheDir = path.join(cacheDir, cacheKey);
     await fs.ensureDir(cacheDir);
 
     const packages = getPackages(root, filterWorkspaces);
