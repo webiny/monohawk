@@ -15,3 +15,4 @@ yarn-error.log*
 web/src/output.json
 run/cache
 run/output.json
+web/public/output.json

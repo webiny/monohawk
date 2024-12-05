@@ -1,6 +1,6 @@
-import filesize from "filesize";
-import React, { useState, useCallback } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import {filesize} from "filesize";
+import React, {useCallback, useState} from "react";
+import {makeStyles} from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Container from "@material-ui/core/Container";

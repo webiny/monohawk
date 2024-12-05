@@ -54,17 +54,19 @@ module.exports.getData = async (root, { cacheDir, filterWorkspaces, filterDeps }
 
 const ignoreDeps = ["path", "os", "fs", "util", "events", "crypto", "url"];
 
-const extractDependencies = (target, package, filter) => {
+const extractDependencies = (target, pkg, filter) => {
     const keys = ["dependencies", "devDependencies"];
     for (const depsKey of keys) {
-        for (const key in package.json[depsKey]) {
+	    for (const key in pkg.json[depsKey]) {
             if (ignoreDeps.includes(key)) {
                 continue;
             }
 
             if (!filter || filter(key)) {
-                const pkgJsonPath = resolvePackagePath(key, package.path);
-
+	            const pkgJsonPath = resolvePackagePath(key, pkg.path);
+	            if(!pkgJsonPath) {
+		            continue;
+	            }
                 const { version } = require(pkgJsonPath);
 
                 const data = target.get(key) || { name: key, versions: [], usedBy: [] };
@@ -74,9 +76,9 @@ const extractDependencies = (target, package, filter) => {
                 }
 
                 data.usedBy.push({
-                    name: package.name,
+	                name: pkg.name,
                     version,
-                    location: package.path,
+	                location: pkg.path,
                     type: depsKey
                 });
                 target.set(key, data);
